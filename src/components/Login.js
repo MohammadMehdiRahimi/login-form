@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { validity } from "./LoginValidition";
+import { validity } from "./validation";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "./toast";
@@ -13,6 +13,7 @@ export default function Login() {
   const [Data, setData] = useState({
     email: "",
     password: "",
+    page: "login",
   });
   const [errors, setErrors] = useState({});
   const [focused, setfocused] = useState({});
@@ -46,6 +47,7 @@ export default function Login() {
     <Container>
       <Row>
         <Col
+          lg={{ span: 4, offset: 4 }}
           sm={{ span: 6, offset: 3 }}
           xs={{ span: 10, offset: 1 }}
           className={style.LogContainer}
@@ -54,8 +56,7 @@ export default function Login() {
             <h1>Login</h1>
 
             <div className={style.formField}>
-              <label>Email:</label>
-              <div>
+              <div className={style.inputField}>
                 <input
                   className={errors.email && focused.email && style.uncomplete}
                   type="email"
@@ -63,14 +64,15 @@ export default function Login() {
                   value={Data.email}
                   onChange={changeHandler}
                   onFocus={focuseHandler}
+                  placeholder=""
+                  id="email"
                 />
-                {errors.email && focused.email && <p>{errors.email}</p>}
+                <label for="email">Email</label>
               </div>
+              {errors.email && focused.email && <p>{errors.email}</p>}
             </div>
             <div className={style.formField}>
-              <label>Password:</label>
-              <div>
-                {" "}
+              <div className={style.inputField}>
                 <input
                   className={
                     errors.password && focused.password && style.uncomplete
@@ -80,18 +82,23 @@ export default function Login() {
                   value={Data.password}
                   onChange={changeHandler}
                   onFocus={focuseHandler}
+                  placeholder=""
+                  id="password"
                 />
-                {errors.password && focused.password && (
-                  <p>{errors.password}</p>
-                )}
+                <label for="password">Password</label>
               </div>
+              {errors.password && focused.password && <p>{errors.password}</p>}
             </div>
-
             <div className={style.buttonContainer}>
-              <Button variant="primary" type="submit">
+              <Link to="/">
+                <Button variant="outline-secondary" type="submit">
+                  Sign Up
+                </Button>
+              </Link>
+
+              <Button variant="primary" className={style.btn}>
                 Login
               </Button>
-              <Link to="/"> Sign in</Link>
             </div>
           </form>
           <ToastContainer />

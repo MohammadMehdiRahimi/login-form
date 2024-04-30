@@ -10,6 +10,7 @@
   margin-top: 10%;
   padding: 15px;
   border-radius: 15px;
+  /* max-width: 500px; */
 }
 .formContainer h1 {
   font-weight: bold;
@@ -17,7 +18,7 @@
 }
 .formContainer {
   /* max-width: 350px; */
-  height: 100%;
+
   width: 100%;
   text-align: center;
   display: flex;
@@ -26,38 +27,65 @@
   align-items: start;
   font-family: Arial, Helvetica, sans-serif;
 }
-.formField div {
-  display: block;
-  justify-content: flex-start;
-  height: 50px;
-  width: 100%;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 5px;
-  position: relative;
-}
-.formField div input {
-  width: 100%;
-  max-width: 400px;
-  border: 1px solid #b1adad;
-  border-radius: 5px;
-  outline: none;
-  padding: 7px 5px;
-  font-size: 11px;
-  float: left;
 
+.formField {
+  width: 100%;
+  position: relative;
+
+  margin-bottom: 30px !important;
 }
-.formField div p {
-  font-size: 10px;
+.formField p {
+  font-size: 12px;
   width: 140px;
   margin-top: 5%;
   color: rgb(210, 21, 21);
   text-align: left;
   font-weight: bold;
   position: absolute;
-  left: 0;
-  bottom: -15px;
+  left: 10px;
+  bottom: -33px;
 }
+
+.inputField {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
+  margin-bottom: 5px;
+  height: 50px;
+  position: relative;
+}
+.inputField input {
+  width: 100%;
+  /* max-width: 400px; */
+  border: 1px solid #b1adad;
+  border-radius: 5px;
+  outline: none;
+  padding: 13px 20px;
+  font-size: 13px;
+  float: left;
+}
+.inputField label {
+  position: absolute;
+  opacity: 0;
+  cursor: text;
+  background: #fff;
+  transition: all 0.5s ease;
+}
+.inputField input:placeholder-shown + label {
+  top: 15px;
+  left: 20px;
+  opacity: 1;
+}
+.inputField input:focus + label,
+.inputField input + label {
+  top: -6px;
+  left: 20px;
+  opacity: 1;
+  padding: 0px 21px;
+}
+
 .customFormField p {
   bottom: -20px;
 }

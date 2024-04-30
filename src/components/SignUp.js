@@ -18,6 +18,7 @@ export default function SignUp() {
     password: "",
     confirmpassword: "",
     isActived: false,
+    page: "signup",
   });
   const [errors, setErrors] = useState({});
   const [focused, setfocused] = useState({});
@@ -58,6 +59,7 @@ export default function SignUp() {
     <Container>
       <Row>
         <Col
+          lg={{ span: 4, offset: 4 }}
           sm={{ span: 6, offset: 3 }}
           xs={{ span: 10, offset: 1 }}
           className={style.SignContainer}
@@ -65,9 +67,7 @@ export default function SignUp() {
           <form onSubmit={submitHandler} className={style.formContainer}>
             <h1>Sign in</h1>
             <div className={style.formField}>
-              <label>Name:</label>
-              <div>
-                {" "}
+              <div className={style.inputField}>
                 <input
                   type="text"
                   className={errors.name && focused.name && style.uncomplete}
@@ -75,13 +75,16 @@ export default function SignUp() {
                   value={Data.name}
                   onChange={changeHandler}
                   onFocus={focuseHandler}
+                  placeholder=""
+                  autoFocus
+                  id="nameInput"
                 />
-                {errors.name && focused.name && <p>{errors.name}</p>}
+                <label for="nameInput">Name</label>
               </div>
+              {errors.name && focused.name && <p>{errors.name}</p>}
             </div>
             <div className={style.formField}>
-              <label>Email:</label>
-              <div>
+              <div className={style.inputField}>
                 <input
                   className={errors.email && focused.email && style.uncomplete}
                   type="email"
@@ -89,14 +92,15 @@ export default function SignUp() {
                   value={Data.email}
                   onChange={changeHandler}
                   onFocus={focuseHandler}
+                  placeholder=""
+                  id="email"
                 />
-                {errors.email && focused.email && <p>{errors.email}</p>}
+                <label for="email">Email</label>
               </div>
+              {errors.email && focused.email && <p>{errors.email}</p>}
             </div>
             <div className={style.formField}>
-              <label>Password:</label>
-              <div>
-                {" "}
+              <div className={style.inputField}>
                 <input
                   className={
                     errors.password && focused.password && style.uncomplete
@@ -106,15 +110,15 @@ export default function SignUp() {
                   value={Data.password}
                   onChange={changeHandler}
                   onFocus={focuseHandler}
+                  placeholder=""
+                  id="password"
                 />
-                {errors.password && focused.password && (
-                  <p>{errors.password}</p>
-                )}
+                <label for="password">Password</label>
               </div>
+              {errors.password && focused.password && <p>{errors.password}</p>}
             </div>
             <div className={style.formField}>
-              <label>Confirm Password :</label>
-              <div className={style.customFormField}>
+              <div className={style.inputField}>
                 <input
                   className={
                     errors.confirmpassword &&
@@ -126,11 +130,16 @@ export default function SignUp() {
                   value={Data.confirmpassword}
                   onChange={changeHandler}
                   onFocus={focuseHandler}
+                  placeholder=""
+                  id="confirmpass"
                 />
-                {errors.confirmpassword && focused.confirmpassword && (
-                  <p>{errors.confirmpassword}</p>
-                )}
+                <label for="confirmpass">Confirm Password </label>
               </div>
+              {errors.confirmpassword && focused.confirmpassword && (
+                <p className={style.confirmPassword}>
+                  {errors.confirmpassword}
+                </p>
+              )}
             </div>
             <div className={style.signInCheckBoxContainer}>
               <div className={style.signInCheckBox}>
@@ -152,9 +161,11 @@ export default function SignUp() {
             </div>
 
             <div className={style.buttonContainer}>
-              <Link to="/1">Log in</Link>
+              <Link to="/login">
+                <Button variant="outline-secondary" className={style.btn}>Login</Button>
+              </Link>
               <Button variant="primary" type="submit">
-                sign in
+                Sign Up
               </Button>
             </div>
           </form>

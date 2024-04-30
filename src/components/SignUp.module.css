@@ -10,13 +10,18 @@
   margin-top: 2%;
   padding: 15px;
   border-radius: 15px;
+  animation: moveup 0.8s cubic-bezier(0, 0.46, 0.48, 1.21);
+}
+@keyframes moveup {
+  from {
+    transform: translateY(100%);
+  }
 }
 .formContainer h1 {
   font-weight: bold;
   margin: 5px auto !important;
 }
 .formContainer {
-  /* max-width: 350px; */
   height: 100%;
   width: 100%;
   text-align: center;
@@ -26,66 +31,91 @@
   align-items: start;
   font-family: Arial, Helvetica, sans-serif;
 }
-.formField div {
-  display: block;
-  justify-content: flex-start;
-  height: 50px;
-  width: 100%;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 5px;
-  position: relative;
-}
-.formField div input {
-  width: 100%;
-  max-width: 400px;
-  border: 1px solid #b1adad;
-  border-radius: 5px;
-  outline: none;
-  padding: 7px 5px;
-  font-size: 11px;
-  float: left;
 
-}
-.formField div p {
-  font-size: 10px;
-  width: 140px;
-  margin-top: 5%;
-  color: rgb(210, 21, 21);
-  text-align: left;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-  bottom: -15px;
-}
-.customFormField p {
-  bottom: -20px;
-}
-.formField {
+.inputField {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
   margin-bottom: 5px;
+  height: 50px;
+  position: relative;
 }
+.inputField input {
+  width: 100%;
+  /* max-width: 400px; */
+  border: 1px solid #b1adad;
+  border-radius: 5px;
+  outline: none;
+  padding: 13px 20px;
+  font-size: 13px;
+  float: left;
+}
+.inputField label {
+  position: absolute;
+  opacity: 0;
+  cursor: text;
+  background: #fff;
+  transition: all 0.5s ease;
+}
+.inputField input:placeholder-shown + label {
+  top: 15px;
+  left: 20px;
+  opacity: 1;
+}
+.inputField input:focus + label,
+.inputField input + label {
+  top: -6px;
+  left: 20px;
+  opacity: 1;
+  padding: 0px 21px;
+}
+
+.formField {
+  width: 100%;
+  position: relative;
+  margin-bottom: 40px;
+}
+.formField p {
+  font-size: 12px;
+  width: 140px;
+  margin-top: 5%;
+  color: rgb(210, 21, 21);
+  text-align: left;
+  font-weight: bold;
+  position: absolute;
+  left: 10px;
+  bottom: -33px;
+}
+.confirmPassword {
+  bottom: -20px;
+  width: 200px !important;
+}
+
 label {
   font-size: 14px;
 }
+
 .signInCheckBoxContainer {
   margin-bottom: 10px;
+
   max-height: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   text-align: left;
+  position: relative;
+  width: 100%;
 }
 .signInCheckBoxContainer p {
-  font-size: 10px;
-  width: 120px;
+  font-size: 13px;
   font-weight: bold;
   color: red;
+  position: absolute;
+  top: 0px;
+  right: 15%;
 }
 .signInCheckBoxContainer label {
   color: rgb(53, 53, 239);
@@ -96,6 +126,9 @@ label {
   width: 180px;
   display: flex;
   justify-content: space-around;
+}
+.signInCheckBox label {
+  font-size: 14px;
 }
 .buttonContainer {
   display: flex;
@@ -108,4 +141,7 @@ label {
 }
 .uncomplete {
   border: 2px solid rgb(233, 109, 109) !important;
+}
+.btn {
+  padding: 7px 16px;
 }
