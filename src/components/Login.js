@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import style from "./Login.module.css";
+import { FaGoogle } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 export default function Login() {
   /* --------------------------------- States && Use --------------------------------- */
   /* -------- States ---------- */
@@ -53,7 +55,13 @@ export default function Login() {
           className={style.LogContainer}
         >
           <form onSubmit={submitHandler} className={style.formContainer}>
-            <h1>Login</h1>
+            <div className={style.socialWrapper}>
+              <h1>Login</h1>
+              <div className={style.social}>
+                <FaGoogle className={style.google} />
+                <FaFacebook className={style.facebook} />
+              </div>
+            </div>
 
             <div className={style.formField}>
               <div className={style.inputField}>
@@ -65,6 +73,7 @@ export default function Login() {
                   onChange={changeHandler}
                   onFocus={focuseHandler}
                   placeholder=""
+                  autoFocus
                   id="email"
                 />
                 <label for="email">Email</label>
@@ -91,7 +100,7 @@ export default function Login() {
             </div>
             <div className={style.buttonContainer}>
               <Link to="/">
-                <Button variant="outline-secondary" type="submit">
+                <Button variant="outline-danger" type="submit">
                   Sign Up
                 </Button>
               </Link>

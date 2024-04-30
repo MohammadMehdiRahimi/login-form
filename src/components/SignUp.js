@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import style from "./SignUp.module.css";
+import { FaGoogle } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 
 export default function SignUp() {
   /* --------------------------------- States && Use --------------------------------- */
@@ -65,7 +67,13 @@ export default function SignUp() {
           className={style.SignContainer}
         >
           <form onSubmit={submitHandler} className={style.formContainer}>
-            <h1>Sign in</h1>
+            <div className={style.socialWrapper}>
+              <h1>Sign in</h1>
+              <div className={style.social}>
+                <FaGoogle className={style.google} />
+                <FaFacebook className={style.facebook} />
+              </div>
+            </div>
             <div className={style.formField}>
               <div className={style.inputField}>
                 <input
@@ -143,8 +151,9 @@ export default function SignUp() {
             </div>
             <div className={style.signInCheckBoxContainer}>
               <div className={style.signInCheckBox}>
-                <label> I accept all services</label>
+                <label for="isactived"> I accept all services</label>
                 <input
+                  id="isactived"
                   className={
                     errors.isActived && focused.isActived && style.uncomplete
                   }
@@ -162,7 +171,9 @@ export default function SignUp() {
 
             <div className={style.buttonContainer}>
               <Link to="/login">
-                <Button variant="outline-secondary" className={style.btn}>Login</Button>
+                <Button variant="outline-danger" className={style.btn}>
+                  Login
+                </Button>
               </Link>
               <Button variant="primary" type="submit">
                 Sign Up

@@ -42,6 +42,45 @@
   height: 50px;
   position: relative;
 }
+.socialWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.socialWrapper h1 {
+  width: 100%;
+}
+.social {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+.google {
+  cursor: pointer;
+  margin-right: 30px;
+  width: 35px;
+  height: 35px;
+  color: red;
+  transition: transform 0.3s ease;
+}
+.google:hover {
+  transform: scale(1.1);
+}
+.facebook:hover {
+  transform: scale(1.1);
+}
+.facebook {
+  transition: transform 0.3s ease;
+  color: blue;
+  height: 35px;
+  width: 35px;
+}
 .inputField input {
   width: 100%;
   /* max-width: 400px; */
